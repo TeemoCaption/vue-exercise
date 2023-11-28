@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <title>Learn Vue</title>
+
+    <style>
+        .box {
+            padding: 100px 0;
+            width: 400px;
+            text-align: center;
+            background-color: #ddd;
+            margin: 20px;
+            display: inline-block;
+        }
+        
+        body {
+            background-color: #eee;
+            max-width: 960px;
+            margin: 20px auto;
+        }
+        
+        p,
+        h3,
+        li {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        li {
+            list-style-type: none;
+            background: #fff;
+            margin: 20px auto;
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        li.fav {
+            background: #ff9ed2;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Hello! Vue.js :)</h1>
+    <div id="app">
+
+        <!-- v-bind: 動態綁定屬性(寫法可省略成只有一個冒號)-->
+        <a :href="url">有史以來最好的網站</a>
+
+        <!--條件判斷-->
+        <div v-if="showBooks">
+            <ul>
+                <li v-for="book in filteredBooks" :class="{ fav: book.isFav}" @click="changeFav(book)">
+                    <img :src="book.img" :alt="book.title">
+                    <h3>{{ book.title }}</h3>
+                    <p>{{ book.author }}</p>
+                </li>
+            </ul>
+        </div>
+        <br>
+        <button @click="toggleShowBooks">
+            <span v-if="showBooks">Hide books</span>
+            <span v-else>Show books</span>
+        </button>
+        <!--true / false來決定是否顯示-->
+        <div v-show="showBooks">Currently showing books</div>
+        <br>
+        <!--v-on是滑鼠觸發事件(另外一種寫法: 只打@符號)-->
+        <button v-on:click="age++">Increase age</button>
+        <button v-on:click="age--">Decrease age</button>
+        <div @click="changeTitle('Oathbringer')">Change book title</div>
+
+        <br>
+        <!-- mouse events -->
+        <div class="box" @mouseover="handleEvent($event, 5)">mouseover(enter)</div>
+        <div class="box" @mouseleave="handleEvent">mouserleave</div>
+        <!-- 滑鼠雙擊 -->
+        <div class="box" @dblclick="handleEvent">double click</div>
+        <!-- 滑鼠移動 -->
+        <div class="box" @mousemove="handleMousemove">position - {{ x }} {{ y }}</div>
+    </div>
+    <script src="app.js">
+    </script>
+</body>
+
+</html>
