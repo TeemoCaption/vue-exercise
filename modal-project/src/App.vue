@@ -2,7 +2,7 @@
   <h1>{{ title }}</h1>
   <input type="text" ref="name">   <!--使用 ref 屬性給元素或子組件添加一個參考名稱-->
   <button @click="handleClick">Click me</button>
-  <Modal></Modal>
+  <Modal :header="header" :text="hello" theme="sale"></Modal>
 </template>
 
 <script>
@@ -17,6 +17,8 @@ export default {
   data() {
     return {
       title: 'My first vue app :)',
+      header: 'Sign up for the giveaway!',
+      text: 'hello'
     }
   },
   methods: {
