@@ -6,7 +6,14 @@
   <div v-if="showModal">
     <!-- v-bind的縮寫是「:」，用於動態地綁定一個或多個屬性，或者一組屬性到表達式-->
     <!-- 在使用子組件(Modal.vue)的地方用 @close 或 v-on:close 來監聽這個「close」事件 -->
-    <Modal :header="header" :text="hello" theme="sale" @close="togleModal"></Modal>  
+    <Modal theme="sale" @close="togleModal">
+      <template v-slot:links>
+        <a href="#">Sign up now</a>
+        <a href="#">More info</a>
+      </template>
+      <h1>Sign up for the giveaway!</h1>
+      <p>hello</p>
+    </Modal>  
   </div>
   <button @click.alt="togleModal">open Modal(alt)</button>
 </template>
