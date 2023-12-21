@@ -37,12 +37,13 @@ const app = Vue.createApp({ //創建一個新的應用
             book.isFav = !book.isFav;
         }
     },
-    computed: {
+    computed: { // 定義計算屬性
         filteredBooks() {
+            // filter(): 用於創建一個新的陣列，其中包含通過指定函數測試的所有元素。
+            // 追踪 books 陣列中每個對象的 isFav 屬性，只要這些屬性中的任何一個發生變化，filteredBooks 就會重新計算並返回一個新的陣列。
             return this.books.filter((book) => book.isFav);
         }
     }
-
 })
 
 app.mount('#app') //將創建的應用配置渲染在容器元素內
