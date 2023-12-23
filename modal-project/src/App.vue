@@ -3,7 +3,7 @@
   <p>Welcome....</p>
   <input type="text" ref="name">   <!--使用 ref 屬性給元素或子組件添加一個參考名稱-->
   <button @click="handleClick">Click me</button>
-  <teleport to=".modals" v-if="showModal">
+  <teleport to="#modals" v-if="showModal">
     <!-- v-bind的縮寫是「:」，用於動態地綁定一個或多個屬性，或者一組屬性到表達式-->
     <!-- 在使用子組件(Modal.vue)的地方用 @close 或 v-on:close 來監聽這個「close」事件 -->
     <Modal theme="sale" @close="toggleModal">
@@ -15,7 +15,7 @@
       <p>hello</p>
     </Modal>  
   </teleport>
-  <teleport to='.modals' v-if="showModaltwo">
+  <teleport to='#modals' v-if="showModaltwo">
     <!-- v-bind的縮寫是「:」，用於動態地綁定一個或多個屬性，或者一組屬性到表達式-->
     <!-- 在使用子組件(Modal.vue)的地方用 @close 或 v-on:close 來監聽這個「close」事件 -->
     <Modal @close="toggleModaltwo">
@@ -60,7 +60,7 @@ export default {  // export 導出物件
 </script>
 
 <style>
-#app, .modals {
+#app, #modals {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
