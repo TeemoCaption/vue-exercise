@@ -3,10 +3,10 @@
   <p>Welcome....</p>
   <input type="text" ref="name">   <!--使用 ref 屬性給元素或子組件添加一個參考名稱-->
   <button @click="handleClick">Click me</button>
-  <div v-if="showModal">
+  <teleport to=".modals" v-if="showModal">
     <!-- v-bind的縮寫是「:」，用於動態地綁定一個或多個屬性，或者一組屬性到表達式-->
     <!-- 在使用子組件(Modal.vue)的地方用 @close 或 v-on:close 來監聽這個「close」事件 -->
-    <Modal theme="sale" @close="togleModal">
+    <Modal theme="sale" @close="toggleModal">
       <template v-slot:links>
         <a href="#">Sign up now</a>
         <a href="#">More info</a>
@@ -14,8 +14,17 @@
       <h1>Sign up for the giveaway!</h1>
       <p>hello</p>
     </Modal>  
-  </div>
-  <button @click.alt="togleModal">open Modal(alt)</button>
+  </teleport>
+  <teleport to='.modals' v-if="showModaltwo">
+    <!-- v-bind的縮寫是「:」，用於動態地綁定一個或多個屬性，或者一組屬性到表達式-->
+    <!-- 在使用子組件(Modal.vue)的地方用 @close 或 v-on:close 來監聽這個「close」事件 -->
+    <Modal @close="toggleModaltwo">
+      <h1>Sign up for the newsletter</h1>
+      <p>For updates and promo codes!</p>
+    </Modal>  
+  </teleport>
+  <button @click.alt="toggleModal">open Modal(alt)</button>
+  <button @click="toggleModaltwo">open Modal</button>
 </template>
 
 <script>
@@ -30,9 +39,8 @@ export default {  // export 導出物件
   data() {
     return {
       title: 'My first vue app :)',
-      header: 'Sign up for the giveaway!',
-      text: 'hello',
       showModal: false,
+      showModaltwo: false,
     }
   },
   methods: {
@@ -41,15 +49,18 @@ export default {  // export 導出物件
       this.$refs.name.classList.add('active');  // 使用classList.add('...') 來添加一個class
       this.$refs.name.focus();  // focus() 聚焦在輸入框
     },
-    togleModal() {
+    toggleModal() {
       this.showModal = !this.showModal;
     },
+    toggleModaltwo(){
+      this.showModaltwo = !this.showModaltwo;
+    }
   }
 }
 </script>
 
 <style>
-#app {
+#app, .modals {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
