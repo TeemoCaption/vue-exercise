@@ -1,7 +1,8 @@
 <template>
   <h1>Edward Reaction timer</h1>
-  <button @click="start">Start</button>
-  <Block v-if="isPlaying" :delay="delay"></Block>
+  <button @click="start" :disabled="isPlaying">Start</button>
+  <Block v-if="isPlaying" :delay="delay" @end="endGame"></Block>
+  <p>Reaction time: {{ score }}ms</p>
 </template>
 
 <script>
@@ -16,13 +17,22 @@ export default {
     return{
       isPlaying: false,
       delay: null,
+      score: null,
+      showResults: null,
     }
   },
   methods: {
     start(){
-      this.isPlaying = true;
       this.delay = 2000 + Math.random() * 5000;
-      console.log(this.delay);
+      this.isPlaying = true;
+      //console.log(this.delay);
+      /*setTimeout(() => {
+        this.isPlaying = true;
+      }, this.delay);*/
+    },
+    endGame(recationTime){
+      this.score = recationTime;
+      this.isPlaying = false;
     },
   },
 }
