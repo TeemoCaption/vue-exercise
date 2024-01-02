@@ -2,29 +2,32 @@
   <h1>Edward Reaction timer</h1>
   <button @click="start" :disabled="isPlaying">Start</button>
   <Block v-if="isPlaying" :delay="delay" @end="endGame"></Block>
-  <p>Reaction time: {{ score }}ms</p>
+  <Results v-if="showResults" :score="score"></Results>
 </template>
 
 <script>
 import Block from './components/Block.vue';
+import Results from './components/Results.vue';
+
 
 export default {
   name: 'App',
   components: {
-    Block
+    Block,Results
   },
   data(){
     return{
       isPlaying: false,
       delay: null,
       score: null,
-      showResults: null,
+      showResults: false,
     }
   },
   methods: {
     start(){
       this.delay = 2000 + Math.random() * 5000;
       this.isPlaying = true;
+      this.showResults = false;
       //console.log(this.delay);
       /*setTimeout(() => {
         this.isPlaying = true;
@@ -33,6 +36,7 @@ export default {
     endGame(recationTime){
       this.score = recationTime;
       this.isPlaying = false;
+      this.showResults = true;
     },
   },
 }
