@@ -1,1 +1,2 @@
-# vue-exercise
+# Vue.JS初學
+每個單元已分別建立成分支。
