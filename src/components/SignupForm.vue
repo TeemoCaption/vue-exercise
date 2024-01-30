@@ -7,7 +7,6 @@
         <p>Skills: {{ skills.join(', ') }}</p>
         <p>Terms accepted: {{ terms ? 'Yes' : 'No' }}</p>
     </div>
-    <p>123</p>   
     <!--當表單提交時，加上.prevent會阻止表單的默認提交行為（即不會導致頁面重新加載）-->
     <form @submit.prevent="handleSubmit">
         <label>Email:</label>
