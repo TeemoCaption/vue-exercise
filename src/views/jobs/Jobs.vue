@@ -1,7 +1,10 @@
 <template>
     <h1>Jobs</h1>
-    <div v-for="job in jobs" :key="job.id">
-        <h2>{{ job.title }}</h2>
+    <div v-for="job in jobs" :key="job.id" class="job">
+        <!-- params: 傳遞路由參數。 -->
+        <router-link :to="{ name: 'JobDetails', params: { id: job.id } }">
+            <h2>{{ job.title }}</h2>
+        </router-link>
     </div>
 </template>
 
@@ -10,13 +13,31 @@ export default {
     data() {
         return {
             jobs: [
-                {title: "edward UX designer", id: 1, details: "lorem"},
-                {title: "edward Web developer", id: 2, details: "lorem"},
-                {title: "edward Vue developer", id: 3, details: "lorem"},
+                { title: "edward UX designer", id: 1, details: "lorem" },
+                { title: "edward Web developer", id: 2, details: "lorem" },
+                { title: "edward Vue developer", id: 3, details: "lorem" },
             ],
         }
     }
 }
 </script>
 
-<style></style>
+<style>
+.job h2 {
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px auto;
+    max-width: 600px;
+    cursor: pointer;
+    color: #444;
+}
+
+.job h2:hover {
+    background: #ddd;
+}
+
+.job a {
+    text-decoration: none;
+}
+</style>
