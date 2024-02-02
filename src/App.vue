@@ -4,8 +4,28 @@
     <router-link :to="{ name: 'about' }">About</router-link>
     <router-link :to="{ name: 'jobs' }">Jobs</router-link>
   </nav>
-  <router-view/>
+  <button @click="redirect">Redirect</button>
+  <button @click="back">Go back</button>
+  <button @click="forward">Go forward</button>
+  <router-view />
 </template>
+
+<script>
+export default{
+  methods:{
+    redirect(){
+      this.$router.push({ name: 'home' });  // 重定向到該頁面
+    },
+    back(){
+      this.$router.go(-1); // 使用 Vue Router 的 go 方法後退一步，模擬瀏覽器的後退按鈕
+    },
+    forward(){
+      this.$router.go(1);  // 往前一步
+    }
+  }
+
+}
+</script>
 
 <style>
 #app {
@@ -31,5 +51,12 @@ nav a {
 nav a.router-link-exact-active {
   color: white;
   background: crimson;
+}
+
+button {
+  margin: 0 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
 }
 </style>
