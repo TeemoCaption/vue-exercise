@@ -12,11 +12,7 @@
 export default {
     data() {
         return {
-            jobs: [
-                { title: "edward UX designer", id: 1, details: "lorem" },
-                { title: "edward Web developer", id: 2, details: "lorem" },
-                { title: "edward Vue developer", id: 3, details: "lorem" },
-            ],
+            jobs: [],
         }
     }
 }

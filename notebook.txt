@@ -1,1 +1,2 @@
-安裝JSON server包指令：npm install json-server
+安裝JSON server包指令： npm install json-server
+啟動 json-server指令： npx json-server --watch data/db.json　（「data/db.json」是JSON文件路徑）
