@@ -1,18 +1,7 @@
 {
-    "jobs": [{
-            "title": "edward UX designer ",
-            "id": 1,
-            "details": "lorem "
-        },
-        {
-            "title": "edward Web developer",
-            "id": 2,
-            "details": "lorem "
-        },
-        {
-            "title ": "edward Vue developer",
-            "id": 3,
-            "details": "lorem"
-        }
+    "jobs": [
+      { "title": "Ninja UX Designer", "id": 1, "details": "lorem" },
+      { "title": "Ninja Web Developer", "id": 2, "details": "lorem" },
+      { "title": "Ninja Vue Developer", "id": 3, "details": "lorem" }
     ]
-}
+  }
