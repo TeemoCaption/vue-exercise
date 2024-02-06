@@ -3,7 +3,7 @@
     <h1>home</h1> 
     <input type="text" v-model="search">
     <p>search term - {{ search }}</p>
-    
+    <div v-for="name in matchighNames" :key="name">{{ name }}</div>
   </div>
 </template>
 
