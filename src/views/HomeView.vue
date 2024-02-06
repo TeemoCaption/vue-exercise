@@ -26,7 +26,7 @@ export default {
     //const age = ref(22);
     const edwardTwo = reactive({name: 'teemo', age:40});
     const nameOne = ref('edward');
-    const nameTwo = reactive('teemo');
+    const nameTwo = ref('teemo');
 
     const updateEdwardOne = ()=>{
       edwardOne.value.age = 21;
@@ -34,7 +34,7 @@ export default {
 
     const updateEdwardTwo = ()=>{
       edwardTwo.age = 35;
-      nameTwo = "edward";
+      //nameTwo = "edward";
     }
     return { edwardOne, edwardTwo, nameOne, nameTwo, updateEdwardOne, updateEdwardTwo }
   },
