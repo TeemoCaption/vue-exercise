@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     home
-    <p ref="">My name is {{ name }} and my age is {{ age }}</p>
+    <p ref="p">My name is {{ name }} and my age is {{ age }}</p>
     <button @click="handleClick">Click me</button>
   </div>
 </template>
@@ -25,8 +25,7 @@ export default {
 
     const handleClick = ()=>{
       console.log(p,p.value);
-      p.value.classList.add("test");
-
+      p.value.classList.add("test");  // 將 CSS 類名添加到通過 ref 獲取的 DOM 元素上
     }
     return { name,age,handleClick,p }
   },
