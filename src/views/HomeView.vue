@@ -4,11 +4,12 @@
     <input type="text" v-model="search">
     <p>search term - {{ search }}</p>
     <div v-for="name in matchighNames" :key="name">{{ name }}</div>
+    <button @click="handleClick">stop watching</button>
   </div>
 </template>
 
 <script>
-import { computed, ref, reactive } from 'vue';
+import { computed, ref, reactive, watch, watchEffect } from 'vue';
 
 export default {
   name: 'HomeView',
@@ -21,11 +22,25 @@ export default {
     const search = ref('');
     const names = ref(['teemo','edward','miku','meow'])
 
+    // watch() 需要明確指定它所依賴的數據源，並且只有在指定的數據源變化時才執行回調函數。
+    const stopWatch = watch(search, () =>{
+      console.log("watch function");     
+    });
+    // watchEffect 會自動追蹤回調函數中用到的所有響應式數據，並在這些數據變化時重新執行回調函數。
+    const stopEffect = watchEffect(() =>{
+      console.log("watchEffect function", search.value);     
+    });
+
     // computed() 接收一個返回值的函數作為參數，該返回值就是計算屬性的結果
     const matchighNames = computed(()=>{
       return names.value.filter((name)=> name.includes(search.value));  // 過濾符合條件的資料
     });
-    return { names, search, matchighNames }
+
+    const handleClick = () =>{
+      stopWatch();
+      stopEffect();
+    }
+    return { names, search, matchighNames, handleClick }
   },
   /*
   當同時使用 setup() 函數和 data() 選項時，
