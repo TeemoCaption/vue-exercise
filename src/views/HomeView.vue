@@ -1,7 +1,9 @@
 <template>
   <div class="home">
     <h1>home</h1> 
-    <div v-for="name in names" :key="name">{{ name }}</div>
+    <input type="text" v-model="search">
+    <p>search term - {{ search }}</p>
+    
   </div>
 </template>
 
@@ -16,10 +18,14 @@ export default {
   發生在組件的生命周期之前，甚至在 beforeCreate 和 created 鉤子之前。
   */
   setup() {  
-    // computed() 接收一個返回值的函數作為參數，該返回值就是計算屬性的結果
+    const search = ref('');
     const names = ref(['teemo','edward','miku','meow'])
 
-    return {  }
+    // computed() 接收一個返回值的函數作為參數，該返回值就是計算屬性的結果
+    const matchighNames = computed(()=>{
+      return names.value.filter((name)=> name.includes(search.value));  // 過濾符合條件的資料
+    });
+    return { names, search, matchighNames }
   },
   /*
   當同時使用 setup() 函數和 data() 選項時，
