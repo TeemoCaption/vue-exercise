@@ -33,7 +33,7 @@ export default {
     const updateEdwardTwo = ()=>{
       edwardTwo.age = 35;
     }
-    return { edwardOne,handleClick }
+    return { edwardOne, updateEdwardOne, updateEdwardTwo }
   },
   /*
   當同時使用 setup() 函數和 data() 選項時，
