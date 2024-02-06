@@ -1,13 +1,17 @@
 <template>
   <div class="home">
-    home
-    <p ref="p">My name is {{ name }} and my age is {{ age }}</p>
-    <button @click="handleClick">Click me</button>
+    <h1>home</h1> 
+    <h2>Ref</h2>
+    <p>My name is {{ edwardOne.name }} and my age is {{ edwardOne.age }}</p>
+    <button @click="updateEdwardOne">Click me</button>
+    <h2>Reactive</h2>
+    <p>{{ edwardTwo.name }} - {{ edwardTwo.age }}</p>
+    <button @click="updateEdwardTwo">Click me</button>
   </div>
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref,reactive } from 'vue';
 
 export default {
   name: 'HomeView',
@@ -17,17 +21,19 @@ export default {
   發生在組件的生命周期之前，甚至在 beforeCreate 和 created 鉤子之前。
   */
   setup() {  
-    console.log(this);
-    let name = "edward";
-    let age = 22;
+    const edwardOne = ref({name: 'edward', age: 19})
+    //const name = ref("edward");
+    //const age = ref(22);
+    const edwardTwo = reactive({name: 'teemo', age:40});
 
-    const p = ref(null);
-
-    const handleClick = ()=>{
-      console.log(p,p.value);
-      p.value.classList.add("test");  // 將 CSS 類名添加到通過 ref 獲取的 DOM 元素上
+    const updateEdwardOne = ()=>{
+      edwardOne.value.age = 21;
     }
-    return { name,age,handleClick,p }
+
+    const updateEdwardTwo = ()=>{
+      edwardTwo.age = 35;
+    }
+    return { edwardOne,handleClick }
   },
   /*
   當同時使用 setup() 函數和 data() 選項時，
@@ -35,8 +41,7 @@ export default {
   */ 
   data(){
     return {
-      name: 'Teemo',
-      age: 20,
+      
     }
   }
 }
