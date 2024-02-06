@@ -5,7 +5,7 @@
     <p>My name is {{ edwardOne.name }} and my age is {{ edwardOne.age }}</p>
     <button @click="updateEdwardOne">Click me</button>
     <h2>Reactive</h2>
-    <p>{{ edwardTwo.name }} - {{ edwardTwo.age }}</p>
+    <p>{{ edwardTwo.name }} - {{ edwardTwo.age }} - {{ nametwo }}</p>
     <button @click="updateEdwardTwo">Click me</button>
   </div>
 </template>
@@ -25,6 +25,8 @@ export default {
     //const name = ref("edward");
     //const age = ref(22);
     const edwardTwo = reactive({name: 'teemo', age:40});
+    const nameOne = ref('edward');
+    const nameTwo = reactive('teemo');
 
     const updateEdwardOne = ()=>{
       edwardOne.value.age = 21;
@@ -33,7 +35,7 @@ export default {
     const updateEdwardTwo = ()=>{
       edwardTwo.age = 35;
     }
-    return { edwardOne, updateEdwardOne, updateEdwardTwo }
+    return { edwardOne, edwardTwo, nameOne, nameTwo,updateEdwardOne, updateEdwardTwo }
   },
   /*
   當同時使用 setup() 函數和 data() 選項時，
