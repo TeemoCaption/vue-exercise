@@ -1,17 +1,12 @@
 <template>
   <div class="home">
     <h1>home</h1> 
-    <h2>Ref</h2>
-    <p>My name is {{ edwardOne.name }} and my age is {{ edwardOne.age }}</p>
-    <button @click="updateEdwardOne">Click me</button>
-    <h2>Reactive</h2>
-    <p>{{ edwardTwo.name }} - {{ edwardTwo.age }} - {{ nameTwo }}</p>
-    <button @click="updateEdwardTwo">Click me</button>
+    <div v-for="name in names" :key="name">{{ name }}</div>
   </div>
 </template>
 
 <script>
-import { ref,reactive } from 'vue';
+import { computed, ref, reactive } from 'vue';
 
 export default {
   name: 'HomeView',
@@ -21,22 +16,10 @@ export default {
   發生在組件的生命周期之前，甚至在 beforeCreate 和 created 鉤子之前。
   */
   setup() {  
-    const edwardOne = ref({name: 'edward', age: 19})
-    //const name = ref("edward");
-    //const age = ref(22);
-    const edwardTwo = reactive({name: 'teemo', age:40});
-    const nameOne = ref('edward');
-    const nameTwo = ref('teemo');
+    // computed() 接收一個返回值的函數作為參數，該返回值就是計算屬性的結果
+    const names = ref(['teemo','edward','miku','meow'])
 
-    const updateEdwardOne = ()=>{
-      edwardOne.value.age = 21;
-    }
-
-    const updateEdwardTwo = ()=>{
-      edwardTwo.age = 35;
-      //nameTwo = "edward";
-    }
-    return { edwardOne, edwardTwo, nameOne, nameTwo, updateEdwardOne, updateEdwardTwo }
+    return {  }
   },
   /*
   當同時使用 setup() 函數和 data() 選項時，
