@@ -21,6 +21,7 @@ import PostList from '../components/PostList.vue'
 
 export default {
   name: 'HomeView',
+  components: { PostList },
   /* 
   setup() 函數的主要用途是定義組件的響應式數據和函數，
   並將它們返回給模板或其他組合式 API 函數使用。
