@@ -5,11 +5,19 @@
     <p>search term - {{ search }}</p>
     <div v-for="name in matchighNames" :key="name">{{ name }}</div>
     <button @click="handleClick">stop watching</button>
+
+    <div v-if="error">{{ error }}</div>
+    <div v-if="posts.length">
+      <PostList :posts="posts" />
+    </div>
+    <div v-else>Loading...</div>
   </div>
 </template>
 
 <script>
 import { computed, ref, reactive, watch, watchEffect } from 'vue';
+// component imports
+import PostList from '../components/PostList.vue'
 
 export default {
   name: 'HomeView',
