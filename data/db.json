@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
     "posts": [{
             "id": 1,
@@ -20,4 +21,28 @@
             ]
         }
     ]
+=======
+{
+    "posts": [{
+            "id": 1,
+            "title": "welcome to the new blog",
+            "body": "learn vue.js",
+            "tag": [
+                "webdev",
+                "coding",
+                "news"
+            ]
+        },
+        {
+            "id": 2,
+            "title": "welcome to the new blog",
+            "body": "learn vue.js",
+            "tag": [
+                "webdev",
+                "coding",
+                "news"
+            ]
+        }
+    ]
+>>>>>>> 6bf333f53a458e0451081d6a1d9d580ef8387775
 }
