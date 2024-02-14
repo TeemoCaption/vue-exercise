@@ -19,6 +19,16 @@ export default {
   發生在組件的生命周期之前，甚至在 beforeCreate 和 created 鉤子之前。
   */
   setup() {  
+    const posts = ref([]);
+    const error = ref(null);
+
+    const load = async() =>{
+      try{
+        let data = await fetch()
+      }
+      catch{}
+    };
+
     const search = ref('');
     const names = ref(['teemo','edward','miku','meow'])
 
