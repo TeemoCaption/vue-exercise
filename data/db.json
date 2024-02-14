@@ -1,48 +1,24 @@
-<<<<<<< HEAD
 {
-    "posts": [{
-            "id": 1,
-            "title": "welcome to the new blog",
-            "body": "learn vue.js",
-            "tag": [
-                "webdev",
-                "coding",
-                "news"
-            ]
-        },
-        {
-            "id": 2,
-            "title": "welcome to the new blog",
-            "body": "learn vue.js",
-            "tag": [
-                "webdev",
-                "coding",
-                "news"
-            ]
-        }
+    "posts": [
+      {
+        "id": 1,
+        "title": "welcome to the new blog",
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "tags": [
+          "webdev",
+          "coding",
+          "news"
+        ]
+      },
+      {
+        "id": 2,
+        "title": "top 5 CSS tips",
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "tags": [
+          "css",
+          "webdev",
+          "coding"
+        ]
+      }
     ]
-=======
-{
-    "posts": [{
-            "id": 1,
-            "title": "welcome to the new blog",
-            "body": "learn vue.js",
-            "tag": [
-                "webdev",
-                "coding",
-                "news"
-            ]
-        },
-        {
-            "id": 2,
-            "title": "welcome to the new blog",
-            "body": "learn vue.js",
-            "tag": [
-                "webdev",
-                "coding",
-                "news"
-            ]
-        }
-    ]
->>>>>>> 6bf333f53a458e0451081d6a1d9d580ef8387775
-}
+  }
