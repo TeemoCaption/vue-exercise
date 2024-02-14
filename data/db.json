@@ -1,0 +1,23 @@
+{
+    "posts": [{
+            "id": 1,
+            "title": "welcome to the new blog",
+            "body": "learn vue.js",
+            "tag": [
+                "webdev",
+                "coding",
+                "news"
+            ]
+        },
+        {
+            "id": 2,
+            "title": "welcome to the new blog",
+            "body": "learn vue.js",
+            "tag": [
+                "webdev",
+                "coding",
+                "news"
+            ]
+        }
+    ]
+}
