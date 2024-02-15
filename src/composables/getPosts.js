@@ -1,3 +1,5 @@
+import { ref } from 'vue'
+
 const getPost = () => {
   // 定義一個響應式參考來存儲帖子數據，初始為空陣列
   const posts = ref([]);
@@ -28,7 +30,7 @@ const getPost = () => {
       console.log(error.value);
     }
   };
-
-  // 調用 load 函數以執行加載數據的操作
-  load();
+  return { posts, error, load }
 };
+
+export default getPost;

@@ -18,6 +18,8 @@
 import { computed, ref, reactive, watch, watchEffect } from 'vue';
 // component imports
 import PostList from '../components/PostList.vue'
+import getPost from '../composables/getPosts';
+
 
 export default {
   name: 'HomeView',
@@ -28,6 +30,9 @@ export default {
   發生在組件的生命周期之前，甚至在 beforeCreate 和 created 鉤子之前。
   */
   setup() {
+    const { posts, error, load } = getPost();
+    load();
+
     const search = ref('');
     const names = ref(['teemo', 'edward', 'miku', 'meow'])
 
