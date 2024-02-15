@@ -10,7 +10,9 @@
     <div v-if="posts.length">
       <PostList :posts="posts" />
     </div>
-    <div v-else>Loading...</div>
+    <div v-else>
+      <Spinner />
+    </div>
   </div>
 </template>
 
@@ -19,11 +21,12 @@ import { computed, ref, reactive, watch, watchEffect } from 'vue';
 // component imports
 import PostList from '../components/PostList.vue'
 import getPost from '../composables/getPosts';
+import Spinner from '../components/Spinner.vue'
 
 
 export default {
   name: 'HomeView',
-  components: { PostList },
+  components: { PostList, Spinner },
   /* 
   setup() 函數的主要用途是定義組件的響應式數據和函數，
   並將它們返回給模板或其他組合式 API 函數使用。
